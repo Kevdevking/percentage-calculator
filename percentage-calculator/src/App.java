@@ -32,6 +32,7 @@ public class App extends javax.swing.JFrame {
         txtValue = new javax.swing.JTextField();
         txtResult = new javax.swing.JTextField();
         btnSum = new javax.swing.JButton();
+        btnSum1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +51,13 @@ public class App extends javax.swing.JFrame {
             }
         });
 
+        btnSum1.setText("Calculate Subtraction");
+        btnSum1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSum1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -57,7 +65,10 @@ public class App extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSum)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSum, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSum1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -68,7 +79,7 @@ public class App extends javax.swing.JFrame {
                             .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPercentage, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +97,9 @@ public class App extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSum)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSum)
+                    .addComponent(btnSum1))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -100,6 +113,14 @@ public class App extends javax.swing.JFrame {
         double result = value + (value * (percentage/100));
         txtResult.setText(String.valueOf(result));
     }//GEN-LAST:event_btnSumActionPerformed
+
+    private void btnSum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSum1ActionPerformed
+        // TODO add your handling code here:
+        double value = Double.parseDouble(txtValue.getText());
+        double percentage = Double.parseDouble(txtPercentage.getText());
+        double result = value - (value * (percentage/100));
+        txtResult.setText(String.valueOf(result));
+    }//GEN-LAST:event_btnSum1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,6 +159,7 @@ public class App extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSum;
+    private javax.swing.JButton btnSum1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
